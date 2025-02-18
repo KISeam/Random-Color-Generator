@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Color Generator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex justify-center items-center h-[100vh] gap-10 flex-col">
+      <select id="colorType" class="select select-bordered w-full max-w-xs">
+        <option value="" selected disabled hidden>Select Color Type</option>
+        <option value="solid">Solid Color</option>
+        <option value="gradient">Gradient Color</option>
+      </select>
+
+      <button
+        class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg shadow-2xl"
+        onclick="getSelectedColor()"
+      >
+        Random Color Generator
+      </button>
+
+      <div id="color" style="display: none">
+        <div
+          class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg rounded-lg shadow-2xl flex justify-center items-center"
+        >
+          <div class="tooltip" data-tip="Copy Color">
+            <button
+              class="btn hover:"
+              id="colorCode"
+              onclick="my_modal_1.showModal(), getCopyColor()"
+            ></button>
+          </div>
+          <dialog id="my_modal_1" class="modal">
+            <div class="modal-box">
+              <h3 class="text-lg font-bold">Color Copied to Clipboard</h3>
+              <div class="modal-action">
+                <form method="dialog">
+                  <button class="btn">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
